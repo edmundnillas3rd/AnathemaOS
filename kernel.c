@@ -2,7 +2,20 @@
 #include <stddef.h>
 #include <stdint.h>
 
-enum VGAColor {
+#if defined(__linux__)
+#error "Must use a cross compiler"
+#endif
+ 
+#if !defined(__i386__)
+#error "This kernel needs to be compiled with a i386-elf compiler"
+#endif
+
+#define ALIGNMENT 8
+#define ALIGN(size) (((size) + (ALIGNMENT-1)) & (ALIGNMENT - 1))
+#define SIZE_T_SIZE (ALIGN(sizeof(size_t)))
+
+enum VGAColor 
+{
     VGA_COLOR_BLACK         = 0,
     VGA_COLOR_BLUE          = 1,
     VGA_COLOR_GREEN         = 2,
@@ -72,10 +85,12 @@ void TerminalPutentryat(char c, uint8_t color, size_t x, size_t y)
 {
     const size_t index = y * VGA_WIDTH + x;
     terminalBuffer[index] = VGAEntry(c, color);
+
 }
 
 void TerminalPutchar(char c)
 {
+
     if (c == '\n')
     {
         terminalRow++;
@@ -88,7 +103,9 @@ void TerminalPutchar(char c)
     {
         terminalColumn = 0;
         if (terminalRow == VGA_HEIGHT)
+        {
             terminalRow = 0;
+        }
     }
 }
 
