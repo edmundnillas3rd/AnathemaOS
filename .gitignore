@@ -2,3 +2,7 @@
 *.o
 *.iso
 *.bin
+
+# Build folders
+build/
+bin/
