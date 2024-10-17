@@ -1,4 +1,4 @@
 # Anathema
 
 # References
-* https://wiki.osdev.org/Expanded_Main_Page
+[OSDev Wiki](https://wiki.osdev.org/Expanded_Main_Page)
