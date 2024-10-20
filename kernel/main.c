@@ -115,7 +115,7 @@ void terminal_putchar(char c)
 
     if (terminal_row >= VGA_HEIGHT)
     {
-	terminal_scroll();
+        terminal_scroll();
     }
 
     terminal_putentryat(c, terminal_color, terminal_column, terminal_row);
@@ -155,5 +155,4 @@ void kernel_main(void)
 
 	terminal_writestring("Hello World!\n"); 
     }
-
 }
