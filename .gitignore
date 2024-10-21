@@ -3,7 +3,7 @@
 *.iso
 **/*.bin
 
-
 # Build folders
+isodir/
 build/
 bin/
