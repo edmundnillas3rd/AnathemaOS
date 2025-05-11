@@ -5,7 +5,7 @@ set(CMAKE_CXX_COMPILER i686-elf-g++)
 set(CMAKE_ASM_COMPILER i686-elf-as)
 
 # Default Compiler Flags
-set(CMAKE_C_FLAGS_INIT "-std=gnu99 -ffreestanding -O2 -Wall -Wextra")
+set(CMAKE_C_FLAGS_INIT "-std=gnu99 -ffreestanding -O2 -Wall -Wextra -Wunused-function -Wununsed-variable")
 
 # Default Linker Flags
 set(CMAKE_EXE_LINKER_FLAGS_INIT "-ffreestanding -O2 -nostdlib -lgcc")

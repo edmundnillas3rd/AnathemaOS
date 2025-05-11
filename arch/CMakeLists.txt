@@ -7,8 +7,8 @@ add_library(
 )
 
 target_include_directories(
-    ${PROJECT_NAME} PRIVATE
-    "${CMAKE_CURRENT_SOURCE_DIR}"
-    "${CMAKE_SOURCE_DIR}/libc"
-    "${CMAKE_SOURCE_DIR}/kernel"
+  ${PROJECT_NAME} PRIVATE
+  "${CMAKE_CURRENT_SOURCE_DIR}"
+  "${CMAKE_SOURCE_DIR}/libc"
+  "${CMAKE_SOURCE_DIR}/kernel"
 )

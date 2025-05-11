@@ -1,13 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(AnathemaKernel C CXX ASM)
 
-set(KERNEL_SOURCE_FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/main.c
-)
-
-set(KERNEL_SOURCE_ASM_FILES
-    ${CMAKE_CURRENT_SOURCE_DIR}/boot.s
-)
+file(GLOB_RECURSE KERNEL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.c" "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
 
 add_executable(
     ${PROJECT_NAME}
@@ -19,24 +13,15 @@ target_sources(
     ${CMAKE_CURRENT_SOURCE_DIR}/boot.s
 )
 
-target_include_directories(
-    ${PROJECT_NAME} PRIVATE
-    "${CMAKE_CURRENT_SOURCE_DIR}"
-    "${CMAKE_CURRENT_SOURCE_DIR}/tty"
-)
+target_link_options(${PROJECT_NAME} PRIVATE "LINKER:-T${CMAKE_CURRENT_SOURCE_DIR}/linker.ld")
 
-target_link_options(
-    ${PROJECT_NAME} PRIVATE
-    "LINKER:-T${CMAKE_CURRENT_SOURCE_DIR}/linker.ld"
-)
-
-add_subdirectory("${CMAKE_SOURCE_DIR}/arch" "${CMAKE_CURRENT_SOURCE_DIR}/bin" )
-add_subdirectory("${CMAKE_SOURCE_DIR}/libc" "${CMAKE_CURRENT_SOURCE_DIR}/libc/bin" )
+add_subdirectory("${CMAKE_SOURCE_DIR}/arch" "bin")
+add_subdirectory("${CMAKE_SOURCE_DIR}/libc" "bin/libc")
 
 target_link_libraries(
     ${PROJECT_NAME} PUBLIC
     AnathemaArch
-    AnathemaStringLib
+    AnathemaLibC
 )
 
 set_target_properties(

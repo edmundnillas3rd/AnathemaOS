@@ -1,8 +1,9 @@
 #include <limits.h>
 #include <stdbool.h>
 #include <stdarg.h>
-#include <stdio.h>
-#include <string.h>
+#include <stddef.h>
+
+#define EOF 0
 
 #include "printf.h"
 
@@ -15,7 +16,7 @@ static int print(const char* data, size_t len)
     return true;
 }
 
-int printf(const char* restric format, ...)
+int printf(const char* restrict format, ...)
 {
     va_list parameters;
     va_start(parameters, format);
