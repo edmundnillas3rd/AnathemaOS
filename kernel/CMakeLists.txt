@@ -1,16 +1,19 @@
 cmake_minimum_required(VERSION 3.20)
 project(AnathemaKernel C CXX ASM)
 
-file(GLOB_RECURSE KERNEL_SOURCE_FILES "${CMAKE_CURRENT_SOURCE_DIR}/*.c" "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+set(KERNEL_SOURCE_FILES 
+    main.c 
+)
+
+set(KERNEL_SOURCE_FILES
+    ${KERNEL_SOURCE_FILES}
+
+    boot.s
+)
 
 add_executable(
     ${PROJECT_NAME}
     ${KERNEL_SOURCE_FILES}
-)
-
-target_sources(
-    ${PROJECT_NAME} PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/boot.s
 )
 
 target_link_options(${PROJECT_NAME} PRIVATE "LINKER:-T${CMAKE_CURRENT_SOURCE_DIR}/linker.ld")

@@ -3,7 +3,7 @@ project(AnathemaArch C CXX ASM)
 
 add_library(
     ${PROJECT_NAME} OBJECT
-    "${CMAKE_CURRENT_SOURCE_DIR}/i386/tty.c"
+    "i386/tty.c"
 )
 
 target_include_directories(
