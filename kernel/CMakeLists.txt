@@ -16,14 +16,27 @@ add_executable(
 
 target_sources(
     ${PROJECT_NAME} PRIVATE
-    # ${CMAKE_CURRENT_SOURCE_DIR}/main.c
     ${CMAKE_CURRENT_SOURCE_DIR}/boot.s
+)
 
+target_include_directories(
+    ${PROJECT_NAME} PRIVATE
+    "${CMAKE_CURRENT_SOURCE_DIR}"
+    "${CMAKE_CURRENT_SOURCE_DIR}/tty"
 )
 
 target_link_options(
     ${PROJECT_NAME} PRIVATE
     "LINKER:-T${CMAKE_CURRENT_SOURCE_DIR}/linker.ld"
+)
+
+add_subdirectory("${CMAKE_SOURCE_DIR}/arch" "${CMAKE_CURRENT_SOURCE_DIR}/bin" )
+add_subdirectory("${CMAKE_SOURCE_DIR}/libc" "${CMAKE_CURRENT_SOURCE_DIR}/libc/bin" )
+
+target_link_libraries(
+    ${PROJECT_NAME} PUBLIC
+    AnathemaArch
+    AnathemaStringLib
 )
 
 set_target_properties(
