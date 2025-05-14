@@ -1,15 +1,13 @@
-#!/usr/bin/sh
-
-BINUTILS_MAJOR_VERSION=2 
-BINUTILS_MINOR_VERSION=38
-BINUTILS_PACKAGE_NAME="binutils-$BINUTILS_MAJOR_VERSION.$BINUTILS_MINOR_VERSION"
-BINUTILS_URL="https://ftp.gnu.org/gnu/binutils/$BINUTILS_PACKAGE_NAME.tar.gz"
-
-curl "$BINUTILS_URL" | tar -xvf 
+#!/usr/bin/bash
 
 GCC_MAJOR_VERSION=11
 GCC_MINOR_VERSION=4.0
 GCC_PACKAGE_NAME="gcc-$GCC_MAJOR_VERSION.$GCC_MINOR_VERSION"
 GCC_URL="https://ftp.gnu.org/gnu/gcc/$GCC_PACKAGE_NAME/$GCC_PACKAGE_NAME.tar.gz"
 
-curl "$GCC_URL" | tar -xvf 
+
+push "toolchain/tarballs"
+    curl -LO "$GCC_URL" 
+
+    tar -xvz $GCC_PACKAGE_NAME 
+popd

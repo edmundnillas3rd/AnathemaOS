@@ -1,8 +1,5 @@
 #!/usr/bin/sh
 
-# BINARY_NAME=AnathemaKernel
-# PROJECT_NAME=AnathemaOS
-
 cp "bin/$OS_BINARY_NAME.bin" "isodir/boot/$OS_BINARY_NAME.bin"
 grub-mkrescue -o "$OS_PROJECT_NAME.iso" isodir
 
