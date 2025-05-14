@@ -7,3 +7,6 @@
 isodir/
 build/
 bin/
+
+toolchain/build
+toolchain/tarballs
