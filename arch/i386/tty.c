@@ -3,7 +3,7 @@
 #include <stdint.h>
 
 #include "tty/tty.h"
-#include "string/strlen.h"
+#include "string.h"
 
 #include "vga.h"
 
@@ -19,8 +19,10 @@ void terminal_initialize(void)
 {
     terminal_row = 0;
     terminal_column = 0;
+
     // terminal_color = vga_entry_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLACK);
     terminal_color = vga_entry_color(VGA_COLOR_LIGHT_GREY, VGA_COLOR_BLUE);
+
     terminal_buffer = (uint16_t*) 0xB8000;
     for (size_t y = 0; y < VGA_HEIGHT; y++) 
     {
