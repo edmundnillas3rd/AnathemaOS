@@ -5,7 +5,7 @@
 
 #define EOF 0
 
-#include "printf.h"
+#include "stdio.h"
 
 static int print(const char* data, size_t len)
 {

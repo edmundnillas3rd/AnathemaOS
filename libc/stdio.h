@@ -1,5 +1,5 @@
-#ifndef ___PRINTF_H
-#define ___PRINTF_H
+#ifndef ___STDIO_H
+#define ___STDIO_H
 
 int printf(const char* restrict format, ...);
 
