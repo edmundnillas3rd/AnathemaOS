@@ -1,9 +1,9 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 
-BINARY_NAME=AnathemaKernel
-PROJECT_NAME=AnathemaOS
+# BINARY_NAME=AnathemaKernel
+# PROJECT_NAME=AnathemaOS
 
-cp "bin/$BINARY_NAME.bin" "isodir/boot/$BINARY_NAME.bin"
-grub-mkrescue -o "$PROJECT_NAME.iso" isodir
+cp "bin/$OS_BINARY_NAME.bin" "isodir/boot/$OS_BINARY_NAME.bin"
+grub-mkrescue -o "$OS_PROJECT_NAME.iso" isodir
 
-qemu-system-i386 -cdrom "$PROJECT_NAME.iso"
+qemu-system-i386 -cdrom "$OS_PROJECT_NAME.iso"

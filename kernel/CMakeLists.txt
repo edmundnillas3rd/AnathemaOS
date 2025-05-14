@@ -11,10 +11,13 @@ set(KERNEL_SOURCE_FILES
     boot.s
 )
 
+message(STATUS "C Cross Compiler: ${CMAKE_C_COMPILER}")
+
 add_executable(
     ${PROJECT_NAME}
     ${KERNEL_SOURCE_FILES}
 )
+
 
 target_link_options(${PROJECT_NAME} PRIVATE "LINKER:-T${CMAKE_CURRENT_SOURCE_DIR}/linker.ld")
 
@@ -36,6 +39,6 @@ set_target_properties(
 
 add_custom_target(
     kernel_image ALL
-    COMMAND bash "scripts/run_image.sh"
+    COMMAND ${CMAKE_COMMAND} -E env "OS_PROJECT_NAME=AnathemaOS" "OS_BINARY_NAME=${PROJECT_NAME}" "scripts/run_image.sh"
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
 )

@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/sh
 
 BINUTILS_MAJOR_VERSION=2 # Ubuntu only has this particular version, and I don't want to work with snapd
 BINUTILS_MINOR_VERSION=38
