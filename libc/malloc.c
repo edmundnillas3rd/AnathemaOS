@@ -6,10 +6,6 @@ static void* base = NULL;
 
 void* malloc(size_t size)
 {
-    if (base)
-    {
-
-    }
 }
 
 void free(void* ptr)
