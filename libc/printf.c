@@ -18,15 +18,4 @@ static int print(const char* data, size_t len)
 
 int printf(const char* restrict format, ...)
 {
-    va_list parameters;
-    va_start(parameters, format);
-    
-    int written = 0;
-
-    while (*format != '\0')
-    {
-
-    }
-
-    va_end(parameters);
 }
