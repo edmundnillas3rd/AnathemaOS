@@ -1,12 +1,13 @@
 # Files
+**/*.bin
 *.o
 *.iso
-**/*.bin
 
 # Build folders
+**/build/
 isodir/
-build/
 bin/
 
-toolchain/build
-toolchain/tarballs
+toolchain/*
+!toolchain/cmake/
+

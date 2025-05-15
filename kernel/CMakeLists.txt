@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.20)
 project(AnathemaKernel C CXX ASM)
 
+
 set(KERNEL_SOURCE_FILES 
     main.c 
 )
