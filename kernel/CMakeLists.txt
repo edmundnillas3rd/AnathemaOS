@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 project(AnathemaKernel C CXX ASM)
 
-
 set(KERNEL_SOURCE_FILES 
     main.c 
 )
@@ -12,8 +11,6 @@ set(KERNEL_SOURCE_FILES
     boot.s
 )
 
-message(STATUS "C Cross Compiler: ${CMAKE_C_COMPILER}")
-
 add_executable(
     ${PROJECT_NAME}
     ${KERNEL_SOURCE_FILES}
@@ -22,7 +19,7 @@ add_executable(
 
 target_link_options(${PROJECT_NAME} PRIVATE "LINKER:-T${CMAKE_CURRENT_SOURCE_DIR}/linker.ld")
 
-add_subdirectory("${CMAKE_SOURCE_DIR}/arch" "bin")
+add_subdirectory(arch)
 add_subdirectory("${CMAKE_SOURCE_DIR}/libc" "bin/libc")
 
 target_link_libraries(
