@@ -7,7 +7,5 @@ set(C_LIBRARY_SOURCES
     "malloc.c"
 )
 
-include(LibCHeaders.cmake)
-
 add_library(${PROJECT_NAME} STATIC ${C_LIBRARY_SOURCES})
 

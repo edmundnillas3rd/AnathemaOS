@@ -2,8 +2,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "tty/tty.h"
-#include "string.h"
+#include <tty.h>
+#include <string.h>
 
 #include "vga.h"
 
