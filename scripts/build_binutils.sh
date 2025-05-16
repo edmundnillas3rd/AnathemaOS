@@ -5,11 +5,11 @@ BINUTILS_MINOR_VERSION=38
 BINUTILS_PACKAGE_NAME="binutils-$BINUTILS_MAJOR_VERSION.$BINUTILS_MINOR_VERSION"
 BINUTILS_URL="https://ftp.gnu.org/gnu/binutils/$BINUTILS_PACKAGE_NAME.tar.gz"
 
-pushd "toolchain/tarballs"
-    if [ ! -e "$BINUTILS_PACKAGE_NAME.tar.gz" ]; then
+if [ ! -e "toolchain/tarballs/$BINUTILS_PACKAGE_NAME.tar.gz" ]; then
+    pushd "toolchain/tarballs"
 	curl -LO "$BINUTILS_URL" 
-    fi
-popd
+    popd
+fi
 
 pushd "toolchain"
     if [ ! -d "$BINUTILS_PACKAGE_NAME" ]; then

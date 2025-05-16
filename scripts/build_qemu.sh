@@ -5,11 +5,11 @@ QEMU_MINOR_VERSION=0.0
 QEMU_PACKAGE_NAME="qemu-$QEMU_MAJOR_VERSION.$QEMU_MINOR_VERSION-rc0"
 QEMU_URL="https://download.qemu.org/$QEMU_PACKAGE_NAME.tar.xz"
 
-pushd "toolchain/tarballs"
-    if [ ! -e "$QEMU_PACKAGE_NAME.tar.xz" ]; then
+if [ ! -e "toolchain/tarballs/$QEMU_PACKAGE_NAME.tar.xz" ]; then
+    pushd "toolchain/tarballs"
 	curl -LO "$QEMU_URL" 
-    fi
-popd
+    popd
+fi
 
 pushd "toolchain"
     if [ ! -d "$QEMU_PACKAGE_NAME" ]; then

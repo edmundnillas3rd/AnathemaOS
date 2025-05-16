@@ -6,11 +6,11 @@ GDB_MINOR_VERSION=1
 GDB_PACKAGE_NAME="gdb-$GDB_MAJOR_VERSION.$GDB_MINOR_VERSION"
 GDB_URL="https://ftp.gnu.org/gnu/gdb/$GDB_PACKAGE_NAME.tar.gz"
 
-pushd "toolchain/tarballs"
-    if [ ! -e "$GDB_PACKAGE_NAME.tar.gz" ]; then
+if [ ! -e "toolchain/tarballs/$GDB_PACKAGE_NAME.tar.gz" ]; then
+    pushd "toolchain/tarballs"
 	curl -LO "$GDB_URL" 
-    fi
-popd
+    popd
+fi
 
 pushd "toolchain"
     if [ ! -d "$GDB_PACKAGE_NAME" ]; then
