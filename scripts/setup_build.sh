@@ -3,6 +3,7 @@ TARGET=i686-elf
 PATH="$PREFIX/bin:$PATH"
 
 mkdir -p "toolchain/tarballs"
+mkdir -p "isodir/boot/grub"
 
 source "scripts/build_binutils.sh"
 source "scripts/build_gdb.sh"
