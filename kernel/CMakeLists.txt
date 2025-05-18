@@ -37,6 +37,6 @@ set_target_properties(
 
 add_custom_target(
     kernel_image ALL
-    COMMAND ${CMAKE_COMMAND} -E env "TOOLCHAIN_PATH=${TOOLCHAIN_PATH}" "OS_PROJECT_NAME=AnathemaOS" "OS_BINARY_NAME=${PROJECT_NAME}" "scripts/run_image.sh"
+    COMMAND ${CMAKE_COMMAND} -E env "TOOLCHAIN_PATH=${TOOLCHAIN_PATH}" "OS_PROJECT_NAME=${CMAKE_PROJECT_NAME}" "OS_BINARY_NAME=${PROJECT_NAME}" "scripts/run_image.sh"
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
 )
