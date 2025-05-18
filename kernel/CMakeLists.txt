@@ -19,13 +19,13 @@ add_executable(
 
 target_link_options(${PROJECT_NAME} PRIVATE "LINKER:-T${CMAKE_CURRENT_SOURCE_DIR}/linker.ld")
 
+add_subdirectory(libc)
 add_subdirectory(arch)
-add_subdirectory("${CMAKE_SOURCE_DIR}/libc" "bin/libc")
 
 target_link_libraries(
     ${PROJECT_NAME} PUBLIC
-    AnathemaArch
     AnathemaLibC
+    AnathemaArch
 )
 
 set_target_properties(

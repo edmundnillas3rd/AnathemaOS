@@ -6,4 +6,4 @@ add_library(
     "i386/tty.c"
 )
 
-target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/libc" SYSTEM)
+target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/kernel/libc" SYSTEM) 
