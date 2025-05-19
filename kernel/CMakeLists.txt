@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.20)
+cmake_minimum_required(VERSION 3.22)
 project(AnathemaKernel C CXX ASM)
 
 set(KERNEL_SOURCE_FILES 
@@ -28,12 +28,8 @@ target_link_libraries(
     AnathemaArch
 )
 
-set_target_properties(
-    ${PROJECT_NAME}
-    PROPERTIES
-    RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/$<CONFIG>"
-    RUNTIME_OUTPUT_NAME ${PROJECT_NAME}.bin
-)
+set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/$<CONFIG>")
+set_target_properties(${PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_NAME "${PROJECT_NAME}.bin")
 
 add_custom_target(
     kernel_image ALL
