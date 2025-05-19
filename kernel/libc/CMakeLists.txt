@@ -17,4 +17,3 @@ set(C_SOURCE_FILES
 add_library(${PROJECT_NAME} STATIC ${C_SOURCE_FILES} ${C_HEADER_FILES})
 
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
-

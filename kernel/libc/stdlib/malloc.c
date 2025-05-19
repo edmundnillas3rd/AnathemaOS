@@ -1,8 +1,7 @@
 #include <stdlib.h>
+#include "platform/platform.h"
 
 struct altab aldata = {0};
-
-void* sbrk(int);
 
 void* get_mem(size_t size)
 {

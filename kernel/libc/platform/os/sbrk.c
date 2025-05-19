@@ -1,6 +1,8 @@
 #include <stddef.h>
 #include <stdlib.h>
 
+#include "../platform.h"
+
 // Reference: https://people.kth.se/~johanmon/ose/assignments/maplloc.pdf
 
 static char* heap;
