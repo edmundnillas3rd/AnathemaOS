@@ -7,6 +7,11 @@ set(C_SOURCE_FILES
     "string/memcmp.c"
     "string/memcpy.c"
     "string/memset.c"
+
+    "stdlib/malloc.c"
+    "stdlib/free.c"
+
+    "platform/os/sbrk.c"
 )
 
 add_library(${PROJECT_NAME} STATIC ${C_SOURCE_FILES} ${C_HEADER_FILES})
