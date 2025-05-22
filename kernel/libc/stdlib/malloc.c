@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include "platform/platform.h"
+#include <platform/platform.h>
 
 struct altab aldata = {0};
 
@@ -7,8 +7,8 @@ void* get_mem(size_t size)
 {
     void* p;
     int isize = size;
-    // NOTE(Edmund): (platform/os/sbrk.c) Implement c system service for allocating a block of storage for AnathemaOS
-    return (isize <= 0 || (p = sbrk(isize)) == (void*)-1 ? NULL : p);
+    // NOTE(Edmund): (platform/os/mmap.c) Implement c system service for allocating a block of storage for AnathemaOS
+    return (isize <= 0 || (p = mmap(NULL, isize, 0, 0, 0, 0)) == (void*)-1 ? NULL : p);
 }
 
 static struct cell** find_mem(size_t size)

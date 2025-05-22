@@ -10,13 +10,7 @@ static char* heap;
 static char* brkp = NULL;
 static char* endp = NULL;
 
-void* sbrk(int size)
+void* mmap(void* addr, size_t length, int prot, int flags, int fd, size_t offset)
 {
-    // if ( size == 0 ) 
-    //     return (void*)brkp;
-    // void* free = (void*)brkp;
-    // brkp += size;
-    // if ( brkp >= endp )
-    //     return NULL;
-    // return free;
+    return NULL;
 }
