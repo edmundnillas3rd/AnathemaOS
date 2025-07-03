@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.22)
 project(AnathemaKernel C CXX ASM)
 
 set(KERNEL_SOURCE_FILES 
-    main.c 
+   "main.c"
 )
 
 set(KERNEL_SOURCE_FILES
-    ${KERNEL_SOURCE_FILES}
+    "${KERNEL_SOURCE_FILES}"
 
-    boot.s
+    "boot.s"
 )
 
 add_executable(
