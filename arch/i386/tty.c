@@ -4,7 +4,7 @@
 
 #include <string.h>
 
-#include "../../tty.h"
+#include "tty.h"
 #include "vga.h"
 
 static const size_t	    VGA_WIDTH = 80;

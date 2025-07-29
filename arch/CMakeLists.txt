@@ -7,3 +7,4 @@ add_library(
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/kernel/libc" SYSTEM) 
+target_include_directories(${PROJECT_NAME} PUBLIC "${CMAKE_SOURCE_DIR}/kernel" SYSTEM) 
